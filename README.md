@@ -12,7 +12,7 @@ de mês atual, 6, 12, 24 e 36 meses. A saída é um consolidado tabular
 (CSV + Parquet) na granularidade da subclasse para a data de referência mais
 recente.
 
-➡️ **Solução completa e instruções:** [`solutions/desafio2/`](solutions/desafio2/README.md)
+➡️ **Solução completa e instruções:** [`solutions/desafio-2-ETL-cvm/`](solutions/desafio-2-ETL-cvm/README.md)
 
 ```bash
 cd solutions/desafio2
