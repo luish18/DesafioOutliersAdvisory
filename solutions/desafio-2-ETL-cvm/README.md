@@ -28,10 +28,20 @@ os retornos calculados.
 ### Pré-requisitos
 
 - **Python 3.13+**
-- **[uv](https://docs.astral.sh/uv/)** para gerenciamento de dependências e ambiente
+- **pip** (nenhuma outra ferramenta é necessária)
 
-Não é preciso criar `venv` nem instalar dependências manualmente: o `uv` resolve
-tudo a partir do `pyproject.toml`/`uv.lock` na primeira execução.
+### Instalação
+
+```bash
+# Crie e ative um ambiente virtual (recomendado), depois instale as dependências.
+python -m venv .venv
+# Linux/macOS:
+source .venv/bin/activate
+# Windows (PowerShell):
+# .venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+```
 
 ### Passo a passo
 
@@ -40,13 +50,13 @@ tudo a partir do `pyproject.toml`/`uv.lock` na primeira execução.
 #    Sem --hist: apenas os ~18 meses recentes do diretório DADOS/.
 #    Com  --hist: inclui os ZIPs anuais históricos (2013+), necessários para a
 #    janela de 36 meses. O download histórico é da ordem de 1,6 GB.
-uv run python src/__main__.py download --hist
+python src/__main__.py download --hist
 
 # 2. Tratar e normalizar os CSVs no painel mensal (materializa o DuckDB).
-uv run python src/__main__.py normalize
+python src/__main__.py normalize
 
 # 3. Calcular os retornos e exportar o consolidado da data de referência.
-uv run python src/__main__.py returns
+python src/__main__.py returns
 ```
 
 Ao final, o arquivo consolidado estará em
@@ -267,7 +277,7 @@ o que motiva a flag da decisão 8 e é uma limitação conhecida (abaixo).
 ## Testes
 
 ```bash
-uv run pytest
+pytest
 ```
 
 A suíte (44 testes) cobre as regras de normalização e o cálculo de retornos com

@@ -15,10 +15,11 @@ recente.
 ➡️ **Solução completa e instruções:** [`solutions/desafio-2-ETL-cvm/`](solutions/desafio-2-ETL-cvm/README.md)
 
 ```bash
-cd solutions/desafio2
-uv run python src/__main__.py download --hist
-uv run python src/__main__.py normalize
-uv run python src/__main__.py returns
+cd solutions/desafio-2-ETL-cvm
+pip install -r requirements.txt
+python src/__main__.py download --hist
+python src/__main__.py normalize
+python src/__main__.py returns
 ```
 
 ## Desafio 3 — Relatório Semanal: Movimentações de Fundos
