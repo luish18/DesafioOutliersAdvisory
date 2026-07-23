@@ -1,0 +1,8 @@
+# Dependências de execução do pipeline (Python 3.13+)
+beautifulsoup4>=4.15.0
+duckdb>=1.5.5
+httpx>=0.28.1
+tqdm>=4.69.0
+
+# Testes
+pytest>=9.1.1
