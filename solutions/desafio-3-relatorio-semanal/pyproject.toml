@@ -1,0 +1,11 @@
+[project]
+name = "relatorio-semanal-fundos"
+version = "1.0.0"
+description = "Relatório semanal de movimentações de fundos a partir dos dados abertos da CVM (Desafio 3 — Outliers Advisory)."
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.0", "jinja2>=3.1"]
+
+[tool.pytest.ini_options]
+# Permite `import relatorio_fundos` nos testes sem instalar o pacote.
+pythonpath = ["."]
+testpaths = ["tests"]

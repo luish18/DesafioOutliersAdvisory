@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatório Semanal de Movimentações de Fundos — {{ periodo }}</title>
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-soft: #23335c;
+    --gold: #f2b705;
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --green: #157347;
+    --red: #b02a37;
+    --amber: #b8860b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 64px; }
+  header.hero {
+    background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color: #fff;
+    padding: 36px 0 28px;
+    border-bottom: 4px solid var(--gold);
+  }
+  header.hero .wrap { padding-bottom: 0; }
+  header.hero h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: .2px; }
+  header.hero .periodo { font-size: 18px; color: var(--gold); font-weight: 600; }
+  header.hero .meta { margin-top: 14px; font-size: 13px; color: #c9d2e3; }
+  header.hero .meta span { display: inline-block; margin-right: 18px; }
+
+  section { margin-top: 34px; }
+  h2 {
+    font-size: 19px; margin: 0 0 14px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--line); color: var(--navy);
+  }
+  h3 { font-size: 15px; color: var(--navy-soft); margin: 22px 0 10px; }
+
+  /* Cartões do resumo executivo */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; box-shadow: 0 1px 2px rgba(16,24,40,.04);
+  }
+  .card .n { font-size: 30px; font-weight: 700; line-height: 1; }
+  .card .lbl { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .card.novos .n { color: var(--green); }
+  .card.pre_operacional .n { color: var(--amber); }
+  .card.liquidacao .n { color: var(--red); }
+  .card.cancelados .n { color: var(--red); }
+
+  .lead { color: var(--muted); font-size: 14px; margin: 0 0 4px; }
+
+  table.data-table {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    font-size: 13.5px;
+  }
+  table.data-table thead th {
+    background: var(--navy); color: #fff; text-align: left;
+    padding: 9px 12px; font-weight: 600; white-space: nowrap;
+  }
+  table.data-table tbody td { padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  table.data-table tbody tr:nth-child(even) { background: #fafbfc; }
+  .table-scroll { overflow-x: auto; }
+  .empty { color: var(--muted); font-style: italic; margin: 6px 0 0; }
+  .count-badge {
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    background: #eef1f6; border-radius: 999px; padding: 2px 10px; margin-left: 8px;
+  }
+  footer {
+    margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Relatório Semanal de Movimentações de Fundos</h1>
+    <div class="periodo">{{ periodo }}</div>
+    <div class="meta">
+      <span>Gerado em {{ gerado_em }}</span>
+      <span>Fonte: CVM — registro_fundo.csv (retrato de {{ vintage }})</span>
+      <span>Base analisada: {{ "{:,}".format(total_base).replace(",", ".") }} fundos</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section id="resumo">
+    <h2>Resumo executivo</h2>
+    {% if total_movimentacoes == 0 %}
+      <p class="empty">Nenhuma movimentação identificada no período.</p>
+    {% else %}
+      <p class="lead">No período foram identificadas
+        <strong>{{ total_movimentacoes }} movimentações</strong>:</p>
+      <div class="cards">
+        {% for cat in category_order %}
+        <div class="card {{ cat }}">
+          <div class="n">{{ counts[cat] }}</div>
+          <div class="lbl">{{ labels[cat] }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+
+  {% for sec in sections %}
+  <section id="sec-{{ sec.key }}">
+    <h2>{{ sec.titulo }} <span class="count-badge">{{ sec.quantidade }}</span></h2>
+    {% if sec.quantidade == 0 %}
+      <p class="empty">Sem ocorrências no período.</p>
+    {% else %}
+      <div class="table-scroll">{{ sec.tabela | table }}</div>
+    {% endif %}
+  </section>
+  {% endfor %}
+
+  <section id="agregados">
+    <h2>Estatísticas agregadas</h2>
+
+    <h3>Movimentações por classe/tipo de fundo</h3>
+    {% if by_class is not none and not by_class.empty %}
+      <div class="table-scroll">{{ by_class.reset_index() | table }}</div>
+    {% else %}
+      <p class="empty">Sem dados no período.</p>
+    {% endif %}
+
+    <h3>Top gestoras por lançamentos (fundos novos)</h3>
+    {% if top_lancamentos is not none and not top_lancamentos.empty %}
+      <div class="table-scroll">{{ top_lancamentos | table }}</div>
+    {% else %}
+      <p class="empty">Sem lançamentos no período.</p>
+    {% endif %}
+  </section>
+
+  <footer>
+    Relatório gerado automaticamente a partir dos dados cadastrais públicos da CVM
+    (Portal de Dados Abertos). Os dados refletem o retrato mais recente publicado;
+    consulte o README para as limitações do modelo de snapshot.
+  </footer>
+
+</div>
+</body>
+</html>

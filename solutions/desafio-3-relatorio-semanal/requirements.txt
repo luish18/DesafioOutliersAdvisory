@@ -1,0 +1,7 @@
+# Dependências do Relatório Semanal de Movimentações de Fundos (Desafio 3).
+# O download da CVM usa apenas a biblioteca padrão (urllib), sem 'requests'.
+pandas>=2.0
+jinja2>=3.1
+
+# Desenvolvimento / testes (opcional):
+pytest>=7.0

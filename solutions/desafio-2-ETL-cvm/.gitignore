@@ -1,0 +1,15 @@
+# Dados brutos da CVM (baixados pelo pipeline; ~1,6 GB) e artefatos gerados
+data/
+output/
+.cache/
+
+# Banco DuckDB materializado pela etapa de normalização
+*.duckdb
+*.duckdb.wal
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/

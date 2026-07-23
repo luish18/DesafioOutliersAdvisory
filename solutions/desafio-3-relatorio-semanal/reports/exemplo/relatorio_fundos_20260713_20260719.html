@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatório Semanal de Movimentações de Fundos — 13/07/2026 a 19/07/2026</title>
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-soft: #23335c;
+    --gold: #f2b705;
+    --ink: #1f2430;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --green: #157347;
+    --red: #b02a37;
+    --amber: #b8860b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 64px; }
+  header.hero {
+    background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+    color: #fff;
+    padding: 36px 0 28px;
+    border-bottom: 4px solid var(--gold);
+  }
+  header.hero .wrap { padding-bottom: 0; }
+  header.hero h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: .2px; }
+  header.hero .periodo { font-size: 18px; color: var(--gold); font-weight: 600; }
+  header.hero .meta { margin-top: 14px; font-size: 13px; color: #c9d2e3; }
+  header.hero .meta span { display: inline-block; margin-right: 18px; }
+
+  section { margin-top: 34px; }
+  h2 {
+    font-size: 19px; margin: 0 0 14px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--line); color: var(--navy);
+  }
+  h3 { font-size: 15px; color: var(--navy-soft); margin: 22px 0 10px; }
+
+  /* Cartões do resumo executivo */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; box-shadow: 0 1px 2px rgba(16,24,40,.04);
+  }
+  .card .n { font-size: 30px; font-weight: 700; line-height: 1; }
+  .card .lbl { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .card.novos .n { color: var(--green); }
+  .card.pre_operacional .n { color: var(--amber); }
+  .card.liquidacao .n { color: var(--red); }
+  .card.cancelados .n { color: var(--red); }
+
+  .lead { color: var(--muted); font-size: 14px; margin: 0 0 4px; }
+
+  table.data-table {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    font-size: 13.5px;
+  }
+  table.data-table thead th {
+    background: var(--navy); color: #fff; text-align: left;
+    padding: 9px 12px; font-weight: 600; white-space: nowrap;
+  }
+  table.data-table tbody td { padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+  table.data-table tbody tr:nth-child(even) { background: #fafbfc; }
+  .table-scroll { overflow-x: auto; }
+  .empty { color: var(--muted); font-style: italic; margin: 6px 0 0; }
+  .count-badge {
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    background: #eef1f6; border-radius: 999px; padding: 2px 10px; margin-left: 8px;
+  }
+  footer {
+    margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <h1>Relatório Semanal de Movimentações de Fundos</h1>
+    <div class="periodo">13/07/2026 a 19/07/2026</div>
+    <div class="meta">
+      <span>Gerado em 23/07/2026 às 15:33</span>
+      <span>Fonte: CVM — registro_fundo.csv (retrato de 23/07/2026 18:32)</span>
+      <span>Base analisada: 89.335 fundos</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section id="resumo">
+    <h2>Resumo executivo</h2>
+      <p class="lead">No período foram identificadas
+        <strong>212 movimentações</strong>:</p>
+      <div class="cards">
+        <div class="card novos">
+          <div class="n">88</div>
+          <div class="lbl">Fundos novos (registrados)</div>
+        </div>
+        <div class="card pre_operacional">
+          <div class="n">83</div>
+          <div class="lbl">Entraram em fase pré-operacional</div>
+        </div>
+        <div class="card liquidacao">
+          <div class="n">20</div>
+          <div class="lbl">Entraram em liquidação</div>
+        </div>
+        <div class="card cancelados">
+          <div class="n">21</div>
+          <div class="lbl">Cancelados / encerrados</div>
+        </div>
+      </div>
+  </section>
+
+  <section id="sec-novos">
+    <h2>Fundos novos (registrados) <span class="count-badge">88</span></h2>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Fundo</th>
+      <th>Gestora</th>
+      <th>Administrador</th>
+      <th>Classe/Tipo</th>
+      <th>Data</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ITAPEMA FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>BRAX INVESTIMENTOS LTDA</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.970.262/0001-50</td>
+    </tr>
+    <tr>
+      <td>PORTFOLIO SPECIAL OPPS EVERGREEN FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>CARPA GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>67.987.087/0001-03</td>
+    </tr>
+    <tr>
+      <td>ARC SPECIAL II-B FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO RESP LIMITADA</td>
+      <td>ARC CAPITAL LTDA.</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>67.982.205/0001-90</td>
+    </tr>
+    <tr>
+      <td>ST 2009 FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>STRATA CAPITAL GESTÃO DE RECURSOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.987.539/0001-57</td>
+    </tr>
+    <tr>
+      <td>BRASIL PARALELO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS - RESPONSABILIDADE LIMITADA</td>
+      <td>RIZA SECURITIZAÇÃO E CARTEIRAS GESTORA DE RECURSOS LTD</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.985.717/0001-00</td>
+    </tr>
+    <tr>
+      <td>GASPARINI FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS - RESPONSABILIDADE LIMITADA</td>
+      <td>XVI CAPITAL LTDA.</td>
+      <td>AZUMI DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.973.100/0001-75</td>
+    </tr>
+    <tr>
+      <td>VALECRED II FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>GV ATACAMA CAPITAL LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.969.362/0001-66</td>
+    </tr>
+    <tr>
+      <td>KATCH CRÉDITO PRIVADO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>HARBOUR CAPITAL ADMINISTRADORA DE CARTEIRAS DE VALORES MOBILIÁRIOS LTDA.</td>
+      <td>QORE DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>33.033.191/0001-47</td>
+    </tr>
+    <tr>
+      <td>IT NOW UTILIDADE PÚBLICA FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>ITAU UNIBANCO S.A.</td>
+      <td>FIIM</td>
+      <td>13/07/2026</td>
+      <td>67.981.992/0001-56</td>
+    </tr>
+    <tr>
+      <td>CANTO DO PINHAL FIF - CI RF INCENTIVADO DE INVESTIMENTO EM INFRAESTRUTURA - RESP LIMITADA</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>67.974.755/0001-68</td>
+    </tr>
+    <tr>
+      <td>SUNO GL3A FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>SUNO GESTORA DE RECURSOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.987.944/0001-75</td>
+    </tr>
+    <tr>
+      <td>TRX LOGÍSTICO FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>TRX GESTORA DE RECURSOS LTDA</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.988.297/0001-16</td>
+    </tr>
+    <tr>
+      <td>GENOA CAPITAL SAGRES PREV FIF CIC MULTIMERCADO RESP LIMITADA</td>
+      <td>GENOA CAPITAL GESTORA DE RECURSOS LTDA</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.003.236/0001-15</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR FIF INV EM INFRA CIC INV EM INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.006.572/0001-11</td>
+    </tr>
+    <tr>
+      <td>INVESTO RENDA FIXA SELIC GLOBAL BRL FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA - RESP LIMITADA</td>
+      <td>INVESTO GESTÃO DE RECURSOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.007.229/0001-91</td>
+    </tr>
+    <tr>
+      <td>OBY HEDGE FIF - CLASSE DE INVESTIMENTO MULTIMERCADO - RESPONSABILIDADE LIMITADA</td>
+      <td>OBY EQUITIES GESTORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.007.456/0001-17</td>
+    </tr>
+    <tr>
+      <td>SPECIALE APM FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CREDITO PRIVADO RESP LIMITADA</td>
+      <td>PORTOFINO GESTÃO DE RECURSOS LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.008.471/0001-80</td>
+    </tr>
+    <tr>
+      <td>GAMA GE FRONTIER MARKETS DEBT BRL FIF MULTIMERCADO INVEST NO EXTERIOR - RESPONSABILIDADE LIMITADA</td>
+      <td>GAMA INVESTIMENTOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.008.650/0001-17</td>
+    </tr>
+    <tr>
+      <td>G5 AMOREIRA FIF - CLASSE DE INVESTIMENTO MULTIMERCADO CRÉDITO PRIVADO - RESPONSABILIDADE LIMITADA</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>67.996.811/0001-65</td>
+    </tr>
+    <tr>
+      <td>AXIS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>CVPAR INVESTIMENTOS LTDA</td>
+      <td>BARU DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>68.008.365/0001-04</td>
+    </tr>
+    <tr>
+      <td>RIO JABOQUE FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA</td>
+      <td>BRIO INVESTIMENTOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>14/07/2026</td>
+      <td>68.005.014/0001-31</td>
+    </tr>
+    <tr>
+      <td>PENUAL FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA</td>
+      <td>BRIO INVESTIMENTOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>14/07/2026</td>
+      <td>68.006.453/0001-69</td>
+    </tr>
+    <tr>
+      <td>CP MASTER FUNDO DE INVESTIMENTO EM COTAS DE FIDCS - RESP. LIMITADA</td>
+      <td>LUMINA CAPITAL MANAGEMENT LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>68.008.670/0001-98</td>
+    </tr>
+    <tr>
+      <td>G5 LIBERTAS FIF - CLASSE DE INVESTIMENTO MULTIMERCADO CRÉDITO PRIVADO - RESPONSABILIDADE LIMITADA</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>67.997.506/0001-98</td>
+    </tr>
+    <tr>
+      <td>AVGA CAPITAL IPÊ CRÉDITO ESTRUTURADO HIGH YIELD FI EM COTAS DE FIDC RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>55.259.599/0001-74</td>
+    </tr>
+    <tr>
+      <td>BTG PACTUAL TEVA INFRAESTRUTURA HÍBRIDO FUNDO DE ÍNDICE</td>
+      <td>BTG PACTUAL ASSET MANAGEMENT S/A DTVM</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>14/07/2026</td>
+      <td>68.008.712/0001-90</td>
+    </tr>
+    <tr>
+      <td>BTG PACTUAL AMAZÔNIA PARA TODOS FUNDO DE ÍNDICE</td>
+      <td>BTG PACTUAL ASSET MANAGEMENT S/A DTVM</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>14/07/2026</td>
+      <td>68.009.155/0001-22</td>
+    </tr>
+    <tr>
+      <td>KYOTO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>KANASTRA ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>67.951.853/0001-80</td>
+    </tr>
+    <tr>
+      <td>VANTAGE INFRA DEBT FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES EM INFRAESTRUTURA</td>
+      <td>AZ QUEST INFRA LTDA.</td>
+      <td>BANCO DAYCOVAL S.A.</td>
+      <td>FIP</td>
+      <td>15/07/2026</td>
+      <td>68.033.613/0001-69</td>
+    </tr>
+    <tr>
+      <td>XPVP EXCLUSIVO 2 PREV XP SEGUROS FI FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO - RESP LIMITADA</td>
+      <td>XP VIDA E PREVIDÊNCIA S.A.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.018.543/0001-70</td>
+    </tr>
+    <tr>
+      <td>CATHEDRAL RANGE FUNDO DE INVESTIMENTO FINANCEIRO</td>
+      <td>DETOMASO ADMINISTRADORA DE RECURSOS LTDA</td>
+      <td>BARU DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.019.575/0001-90</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR II FIF INV EM INFRA CIC INV INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.020.362/0001-88</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR M FIF INV EM INFRA CIC INV INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.028.812/0001-89</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK CORPORATE LIQUIDEZ FIF CLASSE DE INV EM COTAS RF CRÉDITO PRIVADO RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.022.830/0001-53</td>
+    </tr>
+    <tr>
+      <td>M INCOME PLUS FUNDO DE INVESTIMENTO EM COTAS DE FUNDOS DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>MERCURY GESTÃO DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIDC</td>
+      <td>15/07/2026</td>
+      <td>43.584.040/0001-30</td>
+    </tr>
+    <tr>
+      <td>LEGACY WEALTH FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO - CRÉDITO PRIVADO</td>
+      <td>IGUANA INVESTIMENTOS LTDA.</td>
+      <td>MERITO DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.034.426/0001-08</td>
+    </tr>
+    <tr>
+      <td>SPARTA QP9 FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA CREDITO PRIVADO RESP LIMITADA</td>
+      <td>SPARTA ADMINISTRADORA DE RECURSOS LTDA</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.044.588/0001-19</td>
+    </tr>
+    <tr>
+      <td>PROVENCE ETF FUNDO DE INVESTIMENTO FINANCEIRO DE AÇÕES</td>
+      <td>WEALTH HIGH GOVERNANCE CAPITAL LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.044.926/0001-12</td>
+    </tr>
+    <tr>
+      <td>ITAÚ JANEIRO MULTIMERCADO XP SEGUROS FIF CIC RESP LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.045.300/0001-20</td>
+    </tr>
+    <tr>
+      <td>BP ENERGISA MODERADO FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.050.422/0001-05</td>
+    </tr>
+    <tr>
+      <td>BP PLANO II FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.052.817/0001-47</td>
+    </tr>
+    <tr>
+      <td>BP SUDESTE FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.051.894/0001-82</td>
+    </tr>
+    <tr>
+      <td>BP PLANO I FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.053.828/0001-41</td>
+    </tr>
+    <tr>
+      <td>BP FUNASA BD FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.054.769/0001-26</td>
+    </tr>
+    <tr>
+      <td>EOS FUNDO INCENTIVADO DE INVESTIMENTO FINANCEIRO EM INFRAESTRUTURA RENDA FIXA</td>
+      <td>BTG PACTUAL GESTÃO E CONSULTORIA DE INVESTIMENTOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.050.534/0001-66</td>
+    </tr>
+    <tr>
+      <td>AURUM III FIF - CLASSE DE INVESTIMENTO EM COTAS RF INCENTIVADO DE INVESTIMENTO EM INFRAESTRUTURA</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.178/0001-98</td>
+    </tr>
+    <tr>
+      <td>G5 UBI FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.329/0001-08</td>
+    </tr>
+    <tr>
+      <td>BP ENERGISA CONSERVADOR FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR-RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.051.137/0001-09</td>
+    </tr>
+    <tr>
+      <td>ARZ BRIDGE INV REAL ESTATE CREDIT FI MULTIMERCADO INVESTIMENTO NO EXTERIOR CRÉDITO PRIVADO RL</td>
+      <td>ARZ CAPITAL GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.988/0001-44</td>
+    </tr>
+    <tr>
+      <td>WINGS CLT FUNDO DE INVESTIMENTOS EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>VERT GESTORA DE RECURSOS FINANCEIROS LTDA.</td>
+      <td>VERT DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.052.169/0001-29</td>
+    </tr>
+    <tr>
+      <td>RANATORI FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>TAG INVESTIMENTOS LTDA</td>
+      <td>VORTX DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.045.591/0001-57</td>
+    </tr>
+    <tr>
+      <td>ACR CAPITAL FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>RENOVA GESTORA DE RECURSOS LTDA</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.040.921/0001-11</td>
+    </tr>
+    <tr>
+      <td>INVEXT VALEZINHO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>ICON CAPITAL LTDA.</td>
+      <td>BARU DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.045.010/0001-87</td>
+    </tr>
+    <tr>
+      <td>TRUXT WHG II LONG BIAS FIF EM COTAS DE FUNDOS DE INVESTIMENTO FINANCEIROS EM AÇÕES RL</td>
+      <td>TRUXT INVESTIMENTOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.059.789/0001-90</td>
+    </tr>
+    <tr>
+      <td>RESET FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.052.555/0001-10</td>
+    </tr>
+    <tr>
+      <td>ZILANT FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADOS RESPONSABILIDADE LIMITADA</td>
+      <td>BLESS CAPITAL GESTORA DE RECURSOS LTDA.</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.053.872/0001-51</td>
+    </tr>
+    <tr>
+      <td>CONECTA AUTOS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>QI GESTÃO DE RECURSOS LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.054.135/0001-73</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS ASAAS IV - RESPONSABILIDADE LIMITADA</td>
+      <td>KANASTRA ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.057.334/0001-35</td>
+    </tr>
+    <tr>
+      <td>NEXT CORE FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>Index Core Investments Asset Management Ltda.</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.057.459/0001-65</td>
+    </tr>
+    <tr>
+      <td>GALAPAGOS MORNINGSTAR US TOTAL MARKET AÇÕES FUNDO DE ÍNDICE</td>
+      <td>GALAPAGOS CAPITAL INVESTIMENTOS E PARTICIPAÇÕES LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>16/07/2026</td>
+      <td>68.052.981/0001-54</td>
+    </tr>
+    <tr>
+      <td>ITAÚ JASY LONG BIASED FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO RESPONSABILIDADE LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>ITAU UNIBANCO S.A.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.494/0001-60</td>
+    </tr>
+    <tr>
+      <td>MAUÁ CAPITAL PROPRIEDADES LOGÍSTICAS FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>MAUÁ CAPITAL REAL ESTATE LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.058.946/0001-42</td>
+    </tr>
+    <tr>
+      <td>MZO LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>MAUÁ CAPITAL REAL ESTATE LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.059.313/0001-59</td>
+    </tr>
+    <tr>
+      <td>BP ELETRICAS BD FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.070.801/0001-67</td>
+    </tr>
+    <tr>
+      <td>BP ELETRICAS OP FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.071.525/0001-51</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA EXCLUSIVO DISPONIBILIDADES - RESPONSABILIDADE LIMITADA</td>
+      <td>Sicredi Asset Management Ltda.</td>
+      <td>BANCO COOPERATIVO SICREDI S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.071.670/0001-32</td>
+    </tr>
+    <tr>
+      <td>STONECO II EXCLUSIVO FIC FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO RESP LTDA</td>
+      <td>OLIVEIRA TRUST SERVICER S/A</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.074.704/0001-42</td>
+    </tr>
+    <tr>
+      <td>OKJ CAPITAL FUNDO DE INVESTIMENTO EM COTAS DE FUNDOS DE INVESTIMENTO MULTIMERCADO CP</td>
+      <td>CATÁLISE INVESTIMENTOS LTDA.</td>
+      <td>CATÁLISE DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.063.509/0001-17</td>
+    </tr>
+    <tr>
+      <td>GALT TALIPOT FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO - RESP LIMITADA</td>
+      <td>GALT CAPITAL CONSULTORIA DE INVESTIMENTOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.069.930/0001-35</td>
+    </tr>
+    <tr>
+      <td>FIERE GLOBAL FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>FIERE INVESTIMENTOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.069.428/0001-24</td>
+    </tr>
+    <tr>
+      <td>TG PC FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO - RESPONSABILIDADE LIMITADA</td>
+      <td>OPPORTUNITY GESTORA DE RECURSOS LTDA</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.068.861/0001-45</td>
+    </tr>
+    <tr>
+      <td>IGM CAPITAL FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO RESPONSABILIDADE LIMITADA</td>
+      <td>RENOVA GESTORA DE RECURSOS LTDA</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.066.033/0001-78</td>
+    </tr>
+    <tr>
+      <td>BP FUNASA SALDADO FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.070.311/0001-60</td>
+    </tr>
+    <tr>
+      <td>REACH CRÉDITO PREVIDÊNCIA FIE FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO</td>
+      <td>REACH CAPITAL INVESTIMENTOS S.A</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.068.343/0001-21</td>
+    </tr>
+    <tr>
+      <td>XP CDI 96 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.145/0001-29</td>
+    </tr>
+    <tr>
+      <td>MORE CDI PF FUNDO INCENTIVADO DE INVESTIMENTO FINANCEIRO EM INFRAESTRUTURA RENDA FIXA</td>
+      <td>MORE INVEST GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.077.578/0001-80</td>
+    </tr>
+    <tr>
+      <td>FIGTREE OPP1 FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>FIGTREE CAPITAL ADMINISTRAÇÃO DE RECURSOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.079.034/0001-57</td>
+    </tr>
+    <tr>
+      <td>TUESDAY GALT I FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>Tuesday Capitall Investimentos Ltda.</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.077.851/0001-76</td>
+    </tr>
+    <tr>
+      <td>TAPSO III FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>OLIVEIRA TRUST SERVICER S/A</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.074.465/0001-20</td>
+    </tr>
+    <tr>
+      <td>FENP FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADOS RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.070.007/0001-13</td>
+    </tr>
+    <tr>
+      <td>BAOBA WAREHOUSE FIDC DE CLASSE ÚNICA FECHADA RESPONSABILIDADE LIMITADA</td>
+      <td>BAOBA GESTÃO DE RECURSOS LTDA</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.065.987/0001-66</td>
+    </tr>
+    <tr>
+      <td>KOPP CAPITAL FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>CATÁLISE INVESTIMENTOS LTDA.</td>
+      <td>CATÁLISE DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.062.799/0001-84</td>
+    </tr>
+    <tr>
+      <td>XP CDI 92 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.065.832/0001-20</td>
+    </tr>
+    <tr>
+      <td>RUYZ FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES EM INFRAESTRUTURA</td>
+      <td>W14 - ASSET MANAGEMENT LTDA.</td>
+      <td>IDFIP ADMINISTRAÇÃO FIDUCIARIA LTDA</td>
+      <td>FIP</td>
+      <td>17/07/2026</td>
+      <td>68.066.617/0001-43</td>
+    </tr>
+    <tr>
+      <td>VILA NOVA FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>IGUANA INVESTIMENTOS LTDA.</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.073.028/0001-92</td>
+    </tr>
+    <tr>
+      <td>XP CDI 97 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.205/0001-03</td>
+    </tr>
+    <tr>
+      <td>XP CDI 94 CRI II FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.032/0001-23</td>
+    </tr>
+    <tr>
+      <td>FEX AGRO FUNDO DE INVESTIMENTO NAS CADEIAS PRODUTIVAS AGROINDUSTRIAIS - DC RESPONSABILIDADE LIMITADA</td>
+      <td>FARMTECH GESTÃO DE RECURSOS LTDA.</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FIAGRO</td>
+      <td>17/07/2026</td>
+      <td>68.078.770/0001-90</td>
+    </tr>
+  </tbody>
+</table></div>
+  </section>
+  <section id="sec-pre_operacional">
+    <h2>Entraram em fase pré-operacional <span class="count-badge">83</span></h2>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Fundo</th>
+      <th>Gestora</th>
+      <th>Administrador</th>
+      <th>Classe/Tipo</th>
+      <th>Data</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ITAPEMA FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>BRAX INVESTIMENTOS LTDA</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.970.262/0001-50</td>
+    </tr>
+    <tr>
+      <td>CANTO DO PINHAL FIF - CI RF INCENTIVADO DE INVESTIMENTO EM INFRAESTRUTURA - RESP LIMITADA</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>67.974.755/0001-68</td>
+    </tr>
+    <tr>
+      <td>ST 2009 FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>STRATA CAPITAL GESTÃO DE RECURSOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.987.539/0001-57</td>
+    </tr>
+    <tr>
+      <td>BRASIL PARALELO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS - RESPONSABILIDADE LIMITADA</td>
+      <td>RIZA SECURITIZAÇÃO E CARTEIRAS GESTORA DE RECURSOS LTD</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.985.717/0001-00</td>
+    </tr>
+    <tr>
+      <td>GASPARINI FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS - RESPONSABILIDADE LIMITADA</td>
+      <td>XVI CAPITAL LTDA.</td>
+      <td>AZUMI DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.973.100/0001-75</td>
+    </tr>
+    <tr>
+      <td>VALECRED II FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>GV ATACAMA CAPITAL LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>67.969.362/0001-66</td>
+    </tr>
+    <tr>
+      <td>IT NOW UTILIDADE PÚBLICA FUNDO DE ÍNDICE RESPONSABILIDADE LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>ITAU UNIBANCO S.A.</td>
+      <td>FIIM</td>
+      <td>13/07/2026</td>
+      <td>67.981.992/0001-56</td>
+    </tr>
+    <tr>
+      <td>PORTFOLIO SPECIAL OPPS EVERGREEN FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>CARPA GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>67.987.087/0001-03</td>
+    </tr>
+    <tr>
+      <td>SUNO GL3A FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>SUNO GESTORA DE RECURSOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.987.944/0001-75</td>
+    </tr>
+    <tr>
+      <td>TRX LOGÍSTICO FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>TRX GESTORA DE RECURSOS LTDA</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>13/07/2026</td>
+      <td>67.988.297/0001-16</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR FIF INV EM INFRA CIC INV EM INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.006.572/0001-11</td>
+    </tr>
+    <tr>
+      <td>GENOA CAPITAL SAGRES PREV FIF CIC MULTIMERCADO RESP LIMITADA</td>
+      <td>GENOA CAPITAL GESTORA DE RECURSOS LTDA</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.003.236/0001-15</td>
+    </tr>
+    <tr>
+      <td>INVESTO RENDA FIXA SELIC GLOBAL BRL FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA - RESP LIMITADA</td>
+      <td>INVESTO GESTÃO DE RECURSOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.007.229/0001-91</td>
+    </tr>
+    <tr>
+      <td>OBY HEDGE FIF - CLASSE DE INVESTIMENTO MULTIMERCADO - RESPONSABILIDADE LIMITADA</td>
+      <td>OBY EQUITIES GESTORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.007.456/0001-17</td>
+    </tr>
+    <tr>
+      <td>SPECIALE APM FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CREDITO PRIVADO RESP LIMITADA</td>
+      <td>PORTOFINO GESTÃO DE RECURSOS LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.008.471/0001-80</td>
+    </tr>
+    <tr>
+      <td>GAMA GE FRONTIER MARKETS DEBT BRL FIF MULTIMERCADO INVEST NO EXTERIOR - RESPONSABILIDADE LIMITADA</td>
+      <td>GAMA INVESTIMENTOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>68.008.650/0001-17</td>
+    </tr>
+    <tr>
+      <td>G5 AMOREIRA FIF - CLASSE DE INVESTIMENTO MULTIMERCADO CRÉDITO PRIVADO - RESPONSABILIDADE LIMITADA</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>67.996.811/0001-65</td>
+    </tr>
+    <tr>
+      <td>AXIS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>CVPAR INVESTIMENTOS LTDA</td>
+      <td>BARU DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>68.008.365/0001-04</td>
+    </tr>
+    <tr>
+      <td>RIO JABOQUE FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA</td>
+      <td>BRIO INVESTIMENTOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>14/07/2026</td>
+      <td>68.005.014/0001-31</td>
+    </tr>
+    <tr>
+      <td>PENUAL FUNDO DE INVESTIMENTO IMOBILIÁRIO - RESPONSABILIDADE LIMITADA</td>
+      <td>BRIO INVESTIMENTOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>14/07/2026</td>
+      <td>68.006.453/0001-69</td>
+    </tr>
+    <tr>
+      <td>CP MASTER FUNDO DE INVESTIMENTO EM COTAS DE FIDCS - RESP. LIMITADA</td>
+      <td>LUMINA CAPITAL MANAGEMENT LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>68.008.670/0001-98</td>
+    </tr>
+    <tr>
+      <td>KYOTO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>KANASTRA ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>67.951.853/0001-80</td>
+    </tr>
+    <tr>
+      <td>BTG PACTUAL TEVA INFRAESTRUTURA HÍBRIDO FUNDO DE ÍNDICE</td>
+      <td>BTG PACTUAL ASSET MANAGEMENT S/A DTVM</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>14/07/2026</td>
+      <td>68.008.712/0001-90</td>
+    </tr>
+    <tr>
+      <td>G5 LIBERTAS FIF - CLASSE DE INVESTIMENTO MULTIMERCADO CRÉDITO PRIVADO - RESPONSABILIDADE LIMITADA</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>67.997.506/0001-98</td>
+    </tr>
+    <tr>
+      <td>BTG PACTUAL AMAZÔNIA PARA TODOS FUNDO DE ÍNDICE</td>
+      <td>BTG PACTUAL ASSET MANAGEMENT S/A DTVM</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>14/07/2026</td>
+      <td>68.009.155/0001-22</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR II FIF INV EM INFRA CIC INV INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.020.362/0001-88</td>
+    </tr>
+    <tr>
+      <td>VANTAGE INFRA DEBT FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES EM INFRAESTRUTURA</td>
+      <td>AZ QUEST INFRA LTDA.</td>
+      <td>BANCO DAYCOVAL S.A.</td>
+      <td>FIP</td>
+      <td>15/07/2026</td>
+      <td>68.033.613/0001-69</td>
+    </tr>
+    <tr>
+      <td>XPVP EXCLUSIVO 2 PREV XP SEGUROS FI FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO - RESP LIMITADA</td>
+      <td>XP VIDA E PREVIDÊNCIA S.A.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.018.543/0001-70</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK INCENTIVADO CDI CONSERVADOR M FIF INV EM INFRA CIC INV INFRA RF RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.028.812/0001-89</td>
+    </tr>
+    <tr>
+      <td>LEGACY WEALTH FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO - CRÉDITO PRIVADO</td>
+      <td>IGUANA INVESTIMENTOS LTDA.</td>
+      <td>MERITO DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.034.426/0001-08</td>
+    </tr>
+    <tr>
+      <td>SAFRA BUILDING BLOCK CORPORATE LIQUIDEZ FIF CLASSE DE INV EM COTAS RF CRÉDITO PRIVADO RESP LIMITADA</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>68.022.830/0001-53</td>
+    </tr>
+    <tr>
+      <td>PROVENCE ETF FUNDO DE INVESTIMENTO FINANCEIRO DE AÇÕES</td>
+      <td>WEALTH HIGH GOVERNANCE CAPITAL LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.044.926/0001-12</td>
+    </tr>
+    <tr>
+      <td>EOS FUNDO INCENTIVADO DE INVESTIMENTO FINANCEIRO EM INFRAESTRUTURA RENDA FIXA</td>
+      <td>BTG PACTUAL GESTÃO E CONSULTORIA DE INVESTIMENTOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.050.534/0001-66</td>
+    </tr>
+    <tr>
+      <td>ITAÚ JANEIRO MULTIMERCADO XP SEGUROS FIF CIC RESP LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.045.300/0001-20</td>
+    </tr>
+    <tr>
+      <td>BP ENERGISA MODERADO FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.050.422/0001-05</td>
+    </tr>
+    <tr>
+      <td>BP PLANO II FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.052.817/0001-47</td>
+    </tr>
+    <tr>
+      <td>BP SUDESTE FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.051.894/0001-82</td>
+    </tr>
+    <tr>
+      <td>BP PLANO I FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.053.828/0001-41</td>
+    </tr>
+    <tr>
+      <td>BP FUNASA BD FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.054.769/0001-26</td>
+    </tr>
+    <tr>
+      <td>MZO LOGÍSTICA FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>MAUÁ CAPITAL REAL ESTATE LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.059.313/0001-59</td>
+    </tr>
+    <tr>
+      <td>AURUM III FIF - CLASSE DE INVESTIMENTO EM COTAS RF INCENTIVADO DE INVESTIMENTO EM INFRAESTRUTURA</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.178/0001-98</td>
+    </tr>
+    <tr>
+      <td>G5 UBI FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.329/0001-08</td>
+    </tr>
+    <tr>
+      <td>SPARTA QP9 FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA CREDITO PRIVADO RESP LIMITADA</td>
+      <td>SPARTA ADMINISTRADORA DE RECURSOS LTDA</td>
+      <td>INTRAG DTVM LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.044.588/0001-19</td>
+    </tr>
+    <tr>
+      <td>BP ENERGISA CONSERVADOR FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR-RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.051.137/0001-09</td>
+    </tr>
+    <tr>
+      <td>ARZ BRIDGE INV REAL ESTATE CREDIT FI MULTIMERCADO INVESTIMENTO NO EXTERIOR CRÉDITO PRIVADO RL</td>
+      <td>ARZ CAPITAL GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.988/0001-44</td>
+    </tr>
+    <tr>
+      <td>WINGS CLT FUNDO DE INVESTIMENTOS EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>VERT GESTORA DE RECURSOS FINANCEIROS LTDA.</td>
+      <td>VERT DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.052.169/0001-29</td>
+    </tr>
+    <tr>
+      <td>RANATORI FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>TAG INVESTIMENTOS LTDA</td>
+      <td>VORTX DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.045.591/0001-57</td>
+    </tr>
+    <tr>
+      <td>ACR CAPITAL FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>RENOVA GESTORA DE RECURSOS LTDA</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.040.921/0001-11</td>
+    </tr>
+    <tr>
+      <td>INVEXT VALEZINHO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>ICON CAPITAL LTDA.</td>
+      <td>BARU DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.045.010/0001-87</td>
+    </tr>
+    <tr>
+      <td>TRUXT WHG II LONG BIAS FIF EM COTAS DE FUNDOS DE INVESTIMENTO FINANCEIROS EM AÇÕES RL</td>
+      <td>TRUXT INVESTIMENTOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.059.789/0001-90</td>
+    </tr>
+    <tr>
+      <td>RESET FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.052.555/0001-10</td>
+    </tr>
+    <tr>
+      <td>ZILANT FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADOS RESPONSABILIDADE LIMITADA</td>
+      <td>BLESS CAPITAL GESTORA DE RECURSOS LTDA.</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.053.872/0001-51</td>
+    </tr>
+    <tr>
+      <td>GALAPAGOS MORNINGSTAR US TOTAL MARKET AÇÕES FUNDO DE ÍNDICE</td>
+      <td>GALAPAGOS CAPITAL INVESTIMENTOS E PARTICIPAÇÕES LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIIM</td>
+      <td>16/07/2026</td>
+      <td>68.052.981/0001-54</td>
+    </tr>
+    <tr>
+      <td>CONECTA AUTOS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>QI GESTÃO DE RECURSOS LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.054.135/0001-73</td>
+    </tr>
+    <tr>
+      <td>NEXT CORE FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>Index Core Investments Asset Management Ltda.</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.057.459/0001-65</td>
+    </tr>
+    <tr>
+      <td>ITAÚ JASY LONG BIASED FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO RESPONSABILIDADE LIMITADA</td>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>ITAU UNIBANCO S.A.</td>
+      <td>FI</td>
+      <td>16/07/2026</td>
+      <td>68.056.494/0001-60</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS ASAAS IV - RESPONSABILIDADE LIMITADA</td>
+      <td>KANASTRA ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>68.057.334/0001-35</td>
+    </tr>
+    <tr>
+      <td>MAUÁ CAPITAL PROPRIEDADES LOGÍSTICAS FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>MAUÁ CAPITAL REAL ESTATE LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>68.058.946/0001-42</td>
+    </tr>
+    <tr>
+      <td>BP ELETRICAS BD FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.070.801/0001-67</td>
+    </tr>
+    <tr>
+      <td>BP ELETRICAS OP FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.071.525/0001-51</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA EXCLUSIVO DISPONIBILIDADES - RESPONSABILIDADE LIMITADA</td>
+      <td>Sicredi Asset Management Ltda.</td>
+      <td>BANCO COOPERATIVO SICREDI S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.071.670/0001-32</td>
+    </tr>
+    <tr>
+      <td>STONECO II EXCLUSIVO FIC FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO RESP LTDA</td>
+      <td>OLIVEIRA TRUST SERVICER S/A</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.074.704/0001-42</td>
+    </tr>
+    <tr>
+      <td>OKJ CAPITAL FUNDO DE INVESTIMENTO EM COTAS DE FUNDOS DE INVESTIMENTO MULTIMERCADO CP</td>
+      <td>CATÁLISE INVESTIMENTOS LTDA.</td>
+      <td>CATÁLISE DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.063.509/0001-17</td>
+    </tr>
+    <tr>
+      <td>GALT TALIPOT FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO - RESP LIMITADA</td>
+      <td>GALT CAPITAL CONSULTORIA DE INVESTIMENTOS LTDA.</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.069.930/0001-35</td>
+    </tr>
+    <tr>
+      <td>FIERE GLOBAL FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO</td>
+      <td>FIERE INVESTIMENTOS LTDA</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.069.428/0001-24</td>
+    </tr>
+    <tr>
+      <td>TG PC FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO - RESPONSABILIDADE LIMITADA</td>
+      <td>OPPORTUNITY GESTORA DE RECURSOS LTDA</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.068.861/0001-45</td>
+    </tr>
+    <tr>
+      <td>REACH CRÉDITO PREVIDÊNCIA FIE FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO</td>
+      <td>REACH CAPITAL INVESTIMENTOS S.A</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.068.343/0001-21</td>
+    </tr>
+    <tr>
+      <td>BP FUNASA SALDADO FIF - CI MULTIMERCADO CRÉDITO PRIVADO INVESTIMENTO NO EXTERIOR - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.070.311/0001-60</td>
+    </tr>
+    <tr>
+      <td>IGM CAPITAL FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO RESPONSABILIDADE LIMITADA</td>
+      <td>RENOVA GESTORA DE RECURSOS LTDA</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.066.033/0001-78</td>
+    </tr>
+    <tr>
+      <td>XP CDI 92 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.065.832/0001-20</td>
+    </tr>
+    <tr>
+      <td>FIGTREE OPP1 FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>FIGTREE CAPITAL ADMINISTRAÇÃO DE RECURSOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.079.034/0001-57</td>
+    </tr>
+    <tr>
+      <td>TUESDAY GALT I FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>Tuesday Capitall Investimentos Ltda.</td>
+      <td>LIMINE TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.077.851/0001-76</td>
+    </tr>
+    <tr>
+      <td>TAPSO III FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>OLIVEIRA TRUST SERVICER S/A</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.074.465/0001-20</td>
+    </tr>
+    <tr>
+      <td>FENP FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADOS RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.070.007/0001-13</td>
+    </tr>
+    <tr>
+      <td>BAOBA WAREHOUSE FIDC DE CLASSE ÚNICA FECHADA RESPONSABILIDADE LIMITADA</td>
+      <td>BAOBA GESTÃO DE RECURSOS LTDA</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.065.987/0001-66</td>
+    </tr>
+    <tr>
+      <td>KOPP CAPITAL FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>CATÁLISE INVESTIMENTOS LTDA.</td>
+      <td>CATÁLISE DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>68.062.799/0001-84</td>
+    </tr>
+    <tr>
+      <td>RUYZ FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES EM INFRAESTRUTURA</td>
+      <td>W14 - ASSET MANAGEMENT LTDA.</td>
+      <td>IDFIP ADMINISTRAÇÃO FIDUCIARIA LTDA</td>
+      <td>FIP</td>
+      <td>17/07/2026</td>
+      <td>68.066.617/0001-43</td>
+    </tr>
+    <tr>
+      <td>VILA NOVA FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>IGUANA INVESTIMENTOS LTDA.</td>
+      <td>MONETAR DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.073.028/0001-92</td>
+    </tr>
+    <tr>
+      <td>XP CDI 97 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.205/0001-03</td>
+    </tr>
+    <tr>
+      <td>XP CDI 96 CRI I FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.145/0001-29</td>
+    </tr>
+    <tr>
+      <td>XP CDI 94 CRI II FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>68.066.032/0001-23</td>
+    </tr>
+    <tr>
+      <td>MORE CDI PF FUNDO INCENTIVADO DE INVESTIMENTO FINANCEIRO EM INFRAESTRUTURA RENDA FIXA</td>
+      <td>MORE INVEST GESTORA DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>68.077.578/0001-80</td>
+    </tr>
+    <tr>
+      <td>FEX AGRO FUNDO DE INVESTIMENTO NAS CADEIAS PRODUTIVAS AGROINDUSTRIAIS - DC RESPONSABILIDADE LIMITADA</td>
+      <td>FARMTECH GESTÃO DE RECURSOS LTDA.</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FIAGRO</td>
+      <td>17/07/2026</td>
+      <td>68.078.770/0001-90</td>
+    </tr>
+  </tbody>
+</table></div>
+  </section>
+  <section id="sec-liquidacao">
+    <h2>Entraram em liquidação <span class="count-badge">20</span></h2>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Fundo</th>
+      <th>Gestora</th>
+      <th>Administrador</th>
+      <th>Classe/Tipo</th>
+      <th>Data</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REAG SPORTAINMENT CLAIMS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADO</td>
+      <td>KUMB INVEST S.A.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>52.842.504/0001-52</td>
+    </tr>
+    <tr>
+      <td>C18 Fundo de Investimento em Direitos Creditórios</td>
+      <td>M8 PARTNERS GESTORA DE RECURSOS LTDA.</td>
+      <td>OLIVEIRA TRUST DTVM S.A.</td>
+      <td>FIDC</td>
+      <td>14/07/2026</td>
+      <td>57.474.036/0001-24</td>
+    </tr>
+    <tr>
+      <td>ACADE FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO CRÉDITO PRIVADO</td>
+      <td>REAG PORTFÓLIO SOLUTIONS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>50.362.781/0001-32</td>
+    </tr>
+    <tr>
+      <td>SPECIAL OPERATIONS FUNDO DE INVESTIMENTO EM COTAS DE FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADOCP</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>50.219.185/0001-06</td>
+    </tr>
+    <tr>
+      <td>ADIANTA PLANTÃO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO-PADRONIZADOS - RESPONSABILIDADE LI</td>
+      <td>PLANALTO CAPITAL GESTÃO DE RECURSOS LTDA.</td>
+      <td>AZUMI DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>15/07/2026</td>
+      <td>63.887.027/0001-68</td>
+    </tr>
+    <tr>
+      <td>MAYA FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>15/07/2026</td>
+      <td>50.252.286/0001-70</td>
+    </tr>
+    <tr>
+      <td>SÃO JORGE 11 FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>REAG PORTFÓLIO SOLUTIONS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>15/07/2026</td>
+      <td>58.927.139/0001-65</td>
+    </tr>
+    <tr>
+      <td>EUROLAF FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES MULTIESTRATÉGIA</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>FIP</td>
+      <td>15/07/2026</td>
+      <td>50.220.517/0001-64</td>
+    </tr>
+    <tr>
+      <td>REVOLUTION FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO RESPONSABILIDADE ILIMITADA CRÉDITO PRIVADO</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>52.676.040/0001-51</td>
+    </tr>
+    <tr>
+      <td>ESTORIL FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>61.594.920/0001-70</td>
+    </tr>
+    <tr>
+      <td>CÉLERE FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>B6 GESTORA DE RECURSOS LTDA</td>
+      <td>REAG TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>62.271.049/0001-36</td>
+    </tr>
+    <tr>
+      <td>Sanvi Fundo de Investimento em Participações Capital-Semente</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>IDFIP ADMINISTRAÇÃO FIDUCIARIA LTDA</td>
+      <td>FIP</td>
+      <td>17/07/2026</td>
+      <td>50.226.162/0001-10</td>
+    </tr>
+    <tr>
+      <td>MIDAS FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO PADRONIZADOS</td>
+      <td>GV ATACAMA CAPITAL LTDA.</td>
+      <td>QI CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>46.783.889/0001-21</td>
+    </tr>
+    <tr>
+      <td>ABF VISION FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS NÃO-PADRONIZADOS</td>
+      <td>AZUMI ASSET MANAGEMENT LTDA.</td>
+      <td>AZUMI DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>50.356.663/0001-11</td>
+    </tr>
+    <tr>
+      <td>Tecnologia e Saúde Fundo de Investimento em Participações Multiestratégia</td>
+      <td>GLOBAL GESTÃO E INVESTIMENTOS LTDA</td>
+      <td>CBSF TRUST ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>FIP</td>
+      <td>17/07/2026</td>
+      <td>41.143.390/0001-36</td>
+    </tr>
+    <tr>
+      <td>RIVELLO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RESPONSABILIDADE LIMITADA</td>
+      <td>QUADRA GESTÃO DE RECURSOS S.A.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>63.812.703/0001-34</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS CONSIGNADO EXT SETHI - RESPONSABILIDADE LIMITADA</td>
+      <td>SOLIS INVESTIMENTOS S A</td>
+      <td>BANCO DAYCOVAL S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>64.656.842/0001-89</td>
+    </tr>
+    <tr>
+      <td>FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS CONSIGNADO EXT SETHI - RESPONSABILIDADE LIMITADA</td>
+      <td>EXT CAPITAL LTDA.</td>
+      <td>BANCO DAYCOVAL S.A.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>64.656.842/0001-89</td>
+    </tr>
+    <tr>
+      <td>AEG 4 FUNDO DE INVESTIMENTO FINANCEIRO</td>
+      <td>ALGARVE CAPITAL GESTÃO DE RECURSOS LTDA.</td>
+      <td>BANCO DAYCOVAL S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>46.449.928/0001-59</td>
+    </tr>
+    <tr>
+      <td>JALAPÃO FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>APEX GROUP INVESTIMENTOS LTDA.</td>
+      <td>BRL TRUST DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FII</td>
+      <td>17/07/2026</td>
+      <td>51.753.261/0001-13</td>
+    </tr>
+  </tbody>
+</table></div>
+  </section>
+  <section id="sec-cancelados">
+    <h2>Cancelados / encerrados <span class="count-badge">21</span></h2>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Fundo</th>
+      <th>Gestora</th>
+      <th>Administrador</th>
+      <th>Classe/Tipo</th>
+      <th>Data</th>
+      <th>CNPJ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>KATCH CRÉDITO PRIVADO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>HARBOUR CAPITAL ADMINISTRADORA DE CARTEIRAS DE VALORES MOBILIÁRIOS LTDA.</td>
+      <td>QORE DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>33.033.191/0001-47</td>
+    </tr>
+    <tr>
+      <td>FIBRA SOBERANO FUNDO DE INVESTIMENTO FINANCEIRO RENDA FIXA REFERENCIADO DI - RESPONSABILIDADE LTDA</td>
+      <td>FIBRA ADMINISTRADORA DE CARTEIRA DE VALORES MOBILIÁRIOS LTDA</td>
+      <td>FIBRA ADMINISTRADORA DE CARTEIRA DE VALORES MOBILIÁRIOS LTDA</td>
+      <td>FI</td>
+      <td>13/07/2026</td>
+      <td>64.144.841/0001-55</td>
+    </tr>
+    <tr>
+      <td>KATCH CRÉDITO PRIVADO FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>HARBOUR CAPITAL ADMINISTRADORA DE CARTEIRAS DE VALORES MOBILIÁRIOS LTDA.</td>
+      <td>QORE DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>13/07/2026</td>
+      <td>33.033.191/0001-47</td>
+    </tr>
+    <tr>
+      <td>GARDÊNIA FIF - CI MULTIMERCADO CRÉDITO PRIVADO - RESP LIMITADA</td>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>14.840.830/0001-31</td>
+    </tr>
+    <tr>
+      <td>AVGA CAPITAL IPÊ CRÉDITO ESTRUTURADO HIGH YIELD FI EM COTAS DE FIDC RESPONSABILIDADE LIMITADA</td>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>ID CORRETORA DE TITULOS E VALORES MOBILIARIOS S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>55.259.599/0001-74</td>
+    </tr>
+    <tr>
+      <td>KAD IMAB FIC DE FI FINANCEIRO DE RENDA FIXA LONGO PRAZO - RESPONSABILIDADE LIMITADA</td>
+      <td>KADIMA GESTAO DE INVESTIMENTOS LTDA</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>43.778.868/0001-20</td>
+    </tr>
+    <tr>
+      <td>UBS PIONEIRO 2 FUNDO DE INVESTIMENTO FINANCEIRO - MULTIMERCADO CRÉDITO PRIVADO RESP LIMITADA</td>
+      <td>UBS BRASIL ADMINISTRADORA DE VALORES MOBILIÁRIOS LTDA.</td>
+      <td>UBS (BRASIL) CORRETORA DE VALORES S.A</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>36.858.007/0001-96</td>
+    </tr>
+    <tr>
+      <td>KADIMA IMAB INSTITUCIONAL FI EM COTAS DE FIF RENDA FIXA LONGO PRAZO - RESPONSABILIDADE LIMITADA</td>
+      <td>KADIMA GESTAO DE INVESTIMENTOS LTDA</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>14/07/2026</td>
+      <td>64.479.602/0001-56</td>
+    </tr>
+    <tr>
+      <td>LIBRA GARANTIA REAL FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS DE RESPONSABILIDADE LIMITADA</td>
+      <td>CATÁLISE INVESTIMENTOS LTDA.</td>
+      <td>MASTER S/A CORRETORA DE CAMBIO, TITULOS E VALORES MOBILIARIOS</td>
+      <td>FIDC</td>
+      <td>15/07/2026</td>
+      <td>60.205.495/0001-17</td>
+    </tr>
+    <tr>
+      <td>M INCOME PLUS FUNDO DE INVESTIMENTO EM COTAS DE FUNDOS DE INVESTIMENTO EM DIREITOS CREDITÓRIOS</td>
+      <td>MERCURY GESTÃO DE RECURSOS LTDA.</td>
+      <td>BTG PACTUAL SERVIÇOS FINANCEIROS S/A DTVM</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>43.584.040/0001-30</td>
+    </tr>
+    <tr>
+      <td>NAVI P LB FUNDO DE INVESTIMENTO EM COTAS - CIC EM AÇÕES - RESP LIMITADA</td>
+      <td>NAVI CAPITAL ADMINISTRADORA E GESTORA DE RECURSOS FINANCEIROS LTDA.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>15/07/2026</td>
+      <td>46.171.714/0001-63</td>
+    </tr>
+    <tr>
+      <td>XP CRÉDITO ESTRUTURADO 90 MASTER FUNDO DE INVESTIMENTO EM DIREITOS CREDITÓRIOS RL</td>
+      <td>XP VISTA ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FIDC</td>
+      <td>16/07/2026</td>
+      <td>61.802.026/0001-48</td>
+    </tr>
+    <tr>
+      <td>FATOR INVISTO INCOME INTERESTS FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES MULTIESTRATÉGIA</td>
+      <td>FAR FATOR ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FIP</td>
+      <td>16/07/2026</td>
+      <td>58.215.426/0001-42</td>
+    </tr>
+    <tr>
+      <td>FATOR INVISTO FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES MULTIESTRATÉGIA</td>
+      <td>FAR FATOR ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FIP</td>
+      <td>16/07/2026</td>
+      <td>57.915.412/0001-79</td>
+    </tr>
+    <tr>
+      <td>HEADLINE XP VENTURE CAPITAL 3 FEEDER 2 FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES MULTIESTRATÉGIA</td>
+      <td>XP VISTA ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FIP</td>
+      <td>16/07/2026</td>
+      <td>51.851.407/0001-63</td>
+    </tr>
+    <tr>
+      <td>XP SELECTION ALTERNATIVO GLOBAL FUNDO DE INVESTIMENTO EM PARTICIPAÇÕES MULT INVESTIMENTO NO EXTERIOR</td>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FIP</td>
+      <td>16/07/2026</td>
+      <td>44.466.391/0001-00</td>
+    </tr>
+    <tr>
+      <td>FEEDER HEDGE PALADIN DESENVOLVIMENTO RESIDENCIAL FUNDO DE INVESTIMENTO IMOBILIÁRIO</td>
+      <td>ORIZ ASSET MANAGEMENT LTDA.</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>61.925.957/0001-33</td>
+    </tr>
+    <tr>
+      <td>VECTOR RENDA DE ENERGIA RENOVÁVEL FUNDO DE INVESTIMENTO IMOBILIÁRIO RESPONSABILIDADE LIMITADA</td>
+      <td>VECTOR ADMINISTRAÇÃO DE RECURSOS FINANCEIROS LTDA</td>
+      <td>XP INVESTIMENTOS CCTVM S.A.</td>
+      <td>FII</td>
+      <td>16/07/2026</td>
+      <td>53.539.718/0001-17</td>
+    </tr>
+    <tr>
+      <td>GAVEA MACRO ADVANCED A FUNDO DE INVESTIMENTO FINANCEIRO MULTIMERCADO - RESPONSABILIDADE LIMITADA</td>
+      <td>GAVEA INVESTIMENTOS LTDA</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>54.995.765/0001-38</td>
+    </tr>
+    <tr>
+      <td>POLO CRÉDITO COPORATIVO PREV FI FINANCEIRO RENDA FIXA CRÉDITO PRIVADO RESPONSABILIDADE LIMITADA</td>
+      <td>POLO CAPITAL GESTÃO DE RECURSOS LTDA</td>
+      <td>BNY MELLON SERVICOS FINANCEIROS DTVM S.A.</td>
+      <td>FI</td>
+      <td>17/07/2026</td>
+      <td>55.497.299/0001-23</td>
+    </tr>
+    <tr>
+      <td>BRADESCO MID YIELD FIC DE FIDC - RESPONSABILIDADE LIMITADA</td>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>BEM - DISTRIBUIDORA DE TITULOS E VALORES MOBILIARIOS LTDA.</td>
+      <td>FIDC</td>
+      <td>17/07/2026</td>
+      <td>56.431.951/0001-70</td>
+    </tr>
+  </tbody>
+</table></div>
+  </section>
+
+  <section id="agregados">
+    <h2>Estatísticas agregadas</h2>
+
+    <h3>Movimentações por classe/tipo de fundo</h3>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Classe/Tipo</th>
+      <th>Fundos novos (registrados)</th>
+      <th>Entraram em fase pré-operacional</th>
+      <th>Entraram em liquidação</th>
+      <th>Cancelados / encerrados</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FI</td>
+      <td>44</td>
+      <td>42</td>
+      <td>4</td>
+      <td>11</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>FIDC</td>
+      <td>24</td>
+      <td>21</td>
+      <td>9</td>
+      <td>4</td>
+      <td>58</td>
+    </tr>
+    <tr>
+      <td>FII</td>
+      <td>13</td>
+      <td>13</td>
+      <td>4</td>
+      <td>2</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>FIP</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>FIIM</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>FIAGRO</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table></div>
+
+    <h3>Top gestoras por lançamentos (fundos novos)</h3>
+      <div class="table-scroll"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: left;">
+      <th>Gestora</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VINCI SOLUÇÕES DE INVESTIMENTOS LTDA</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>SAFRA ASSET CORRETORA DE TÍTULOS E VALORES MOBILIÁRIOS S.A.</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>XP ALLOCATION ASSET MANAGEMENT LTDA.</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>ITAU UNIBANCO ASSET MANAGEMENT LTDA.</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>G5 ADMINISTRADORA DE RECURSOS LTDA.</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>GESTORA DE RECURSOS ID - GRID LTDA</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>BANCO BRADESCO S.A.</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>BRIO INVESTIMENTOS LTDA.</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>BTG PACTUAL ASSET MANAGEMENT S/A DTVM</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>KANASTRA ADMINISTRAÇÃO DE RECURSOS LTDA</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table></div>
+  </section>
+
+  <footer>
+    Relatório gerado automaticamente a partir dos dados cadastrais públicos da CVM
+    (Portal de Dados Abertos). Os dados refletem o retrato mais recente publicado;
+    consulte o README para as limitações do modelo de snapshot.
+  </footer>
+
+</div>
+</body>
+</html>

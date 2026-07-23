@@ -1,0 +1,6 @@
+# Cache de download da CVM (arquivos grandes, reproduzíveis pelo pipeline).
+data_cache/
+
+# Relatórios gerados — mantemos apenas o exemplo em reports/exemplo/.
+reports/*.md
+reports/*.html
